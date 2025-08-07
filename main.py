@@ -34,9 +34,28 @@ def ver_cadastros(cadastros):
     if not cadastros:
         print("\nNenhum cadastro realizado.")
     else:
-        print("n\====== LISTA DE CADASTROS ======")
+        print("\n====== LISTA DE CADASTROS ======")
         for i, pessoa in enumerate(cadastros, 1):
             print(f"{i}. Nome: {pessoa['Nome']}, Idade:{pessoa['idade']}, Turma: {pessoa['Turma']}, Curso: {pessoa['Curso']}")
             input("\nPessione Enter para voltar ao menu...")
+
+def main():
+    cadastros = carregar_cadastros()  
+    while True:
+        exibir_menu()
+        opcao = input("Escolha uma opção: ")
+        if opcao == "1":
+            cadastrar_pessoa(cadastros)
+        elif opcao == "2":
+            ver_cadastros(cadastros)
+        elif opcao == "3":
+            print("Obrigado por utilizar o sistema de cadastro!")
+            break
+        else:
+            print("Opção inválida! Tente novamente.")
+
+
+if __name__ == "__main__":
+    main()
 
     
